@@ -1,0 +1,51 @@
+<ion-view view-title="我的课程" hide-nav-bar="true">
+	<div class="bar item">
+	<div class="h1 title">我的课程</div>
+   <div class="buttons">
+   	
+  
+	 <button class="button button-clear button-dark"
+          ng-click="data.showDelete = !data.showDelete;">编辑</button>
+ </div>
+      </div>
+	</div>
+	<div class="bar">
+		<div class="row juzhong">
+			<div class="col col-50" ng-style="color" ng-click="mylesson()">我的课程<i class="icon ion-chevron-down"></i></div>
+			<div class="col" ng-style="colorc" ng-click="course()">收藏课程<i class="icon ion-chevron-down"></i></div>
+		</div>
+	</div>
+  <ion-content style="margin-top: 3rem;">
+  	<style>
+  		.juzhong{
+  			text-align: center;
+  		}
+  		
+  	</style>
+  	<!--我的课程-->
+  	 <ion-list show-delete="data.showDelete" ng-show="mycou">
+  	 	<!-- item="temp"-->
+      <ion-item ng-repeat="temp in itemFir" href="#" class="item item-thumbnail-left item-remove-animate">
+          <img ng-src="img/{{temp.imgsrc}}">
+          <h2>{{temp.title}}</h2>
+          <p>{{temp.num}}</p>
+          <p>{{temp.nums}}</p>
+        <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(temp)"></ion-delete-button>
+        <ion-option-button class="button-calm" ng-click="share(temp)">分享</ion-option-button>
+      </ion-item>
+    </ion-list>
+    <!--收藏课程-->
+    <ion-list show-delete="data.showDelete" ng-show="mycol">
+      <ion-item ng-repeat="temp in itemSec" href="#" class="item item-thumbnail-left item-remove-animate">
+        <img ng-src="img/{{temp.imgsrc}}">
+        <h2>{{temp.title}}</h2>
+        <p>{{temp.num}}</p>
+        <p>{{temp.nums}}</p>
+        Item {{ temp.id }}
+        <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(temp)"></ion-delete-button>
+        <ion-option-button class="button-calm" ng-click="share(temp)">分享</ion-option-button>
+      </ion-item>
+    </ion-list>
+   
+  </ion-content>
+</ion-view>

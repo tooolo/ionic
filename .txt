@@ -1,0 +1,20 @@
+ <ion-list show-delete="data.showDelete" ng-show="bdata">
+      <ion-item ng-repeat="temp in buylist" item="item" href="#" class="item item-thumbnail-left item-remove-animate">
+          <img src="{{temp.imgsrc}}">
+          <h2>{{temp.title}}</h2>
+          <p>{{temp.num}}</p>
+          <p>{{temp.nums}}</p>
+        <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
+        <ion-option-button class="button-calm" ng-click="share(item)">·ÖÏí</ion-option-button>
+      </ion-item>
+    </ion-list>
+    <ion-list show-delete="data.showDelete" ng-show="mdata">
+      <ion-item ng-repeat="temp in mylist" item="item" href="#" class="item item-thumbnail-left item-remove-animate">
+        <img src="{{temp.imgsrc}}">
+        <h2>{{temp.title}}</h2>
+        <p>{{temp.num}}</p>
+        <p>{{temp.nums}}</p>
+        <ion-delete-button class="ion-minus-circled" ng-click="onItemDelete(item)"></ion-delete-button>
+        <ion-option-button class="button-calm" ng-click="share(item)">·ÖÏí</ion-option-button>
+      </ion-item>
+    </ion-list>1

@@ -1,0 +1,109 @@
+<ion-view view-title="{{homestudy.id}}" hide-nav-bar="true" hide-tabs="true" >
+
+	<video id="video1" loop width="100%" height="auto"></video>
+	<div ng-show="please" class="mask">
+		<h3 class="title" ng-click="pump()">
+			请登录
+		</h3>
+	</div>
+
+	<div class="bar">
+		<div class="row juzhong">
+			<div class="col col-50" ng-click="toggle()" ng-style="lcolor">目录<i class="icon ion-chevron-down"></i></div>
+			<div class="col" ng-click="xq()" ng-style="pcolor">详情<i class="icon ion-chevron-down"></i></div>
+		</div>
+	</div>
+	<style>
+		.mask{
+			 position:absolute;
+			 left:0;
+			 top: 0;
+			 width:100%;
+			 height:206px;
+			 background:black;
+			 opacity:0.6;
+		}
+		/*a{
+			text-decoration: none;
+			
+		}*/
+		.title{
+			width: 100%;
+			height: 206px;
+			line-height: 206px;			
+			text-align: center;
+			color: white;
+		}
+			.juzhong{
+				text-align: center;
+			}
+			.col{
+				text-align: center;
+			}
+			.col-20{
+				position: relative;
+				left: -10px;
+				border-right:1px dashed #ccc;
+			}		
+			.col-20 img{
+				position: relative;
+				left: 36px;
+				top: 16px;
+				transform: scale(.8);
+			}	
+			.col-40{				
+				line-height: 60px;
+			}
+			.border{
+				border: none;
+			}
+		</style>
+	<ion-content style="margin-top: 7.2rem;">			
+	<div class="list" ng-show="mulu">
+		<div class="item">
+			<p>Python</p>
+		</div>
+		<div class="row" ng-repeat="obj in studymulu">
+			<div class="col col-20">
+				<img src="../img/study_circle.png" />
+			</div>
+			<div class="col col-38">
+				{{obj.title}}
+			</div>
+			<div class="col col-42">
+				{{obj.time}}
+			</div>
+		</div>
+	</div>
+	<div class="list" ng-if="xiangq">
+		<div class="item">
+			Python评价
+		</div>
+		<div class="row" ng-repeat="obj in assesslist">
+			<div class="col col-60">
+				<div class="item item-avatar border">
+					<img ng-src="{{obj.pic}}" />
+					<h2>{{obj.name}}</h2>
+					<p>{{obj.cont}}</p>
+				</div>
+			</div>
+			<div class="col col-40">
+				<p>{{obj.title}}</p>
+			</div>
+		</div>
+	</div>
+	</ion-content>
+	
+	<div class="tabs tabs-icon-top">
+      <a class="tab-item" ng-click="showModal()">
+        <i class="icon ion-edit"></i>评价
+      </a>
+      <a class="tab-item">
+        <i class="icon ion-ios-star-outline"></i>收藏
+      </a>
+      <a class="tab-item" ng-click="payGo()">
+        <i class="icon ion-ios-download-outline"></i>购买
+      </a>
+    </div>
+	
+</ion-view>

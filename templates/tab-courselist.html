@@ -1,0 +1,78 @@
+<ion-view view-title="课程列表" hide-nav-bar="true">
+		<div class="bar item-input-inset">
+			<label class="item-input-wrapper">
+  			<i class="icon ion-search"></i>
+  			<input type="text" placeholder="请输入搜索词" ng-model="serchInputTex"/>
+  		</label>  			
+		</div>
+		
+		<div class="bar">
+		<div class="row juzhong">
+			<div class="col col-50" ng-click="toggle()" ng-style="lcolor">课程列表<i class="icon ion-chevron-down"></i></div>
+			<div class="col" ng-click="free()" ng-style="pcolor">价格<i class="icon ion-chevron-down"></i></div>
+		</div>
+		</div>
+	<ion-content style="margin-top: 3rem;">
+		<style>
+			.juzhong{
+				text-align: center;
+			}					
+			.lessondetail{
+				background: #e8e8e8;
+				padding-bottom: 8px;
+				overflow: hidden;
+			}
+			.lessondetail li{
+				float: left;
+				margin-left: 15px;
+				margin-top: 5px;
+				width: 20%;
+				border: 1px solid #ccc;
+				background: #fff;
+				line-height: 40px;
+				text-align: center;
+			}
+			.lessondetail li button{
+				background: #e8e8e8;
+				color:#333;
+			}
+			.pricelist{
+				width: 100%;
+				background: #e8e8e8;
+			}
+			.pricelist li{
+				line-height: 40px;
+				border-bottom: 1px solid #ccc;
+			}
+			.pricelist span{
+				margin-left: 59px;
+				
+			}
+		</style>
+        
+        <div class="lessondetail" ng-hide="course">
+			<ul>
+				<li ng-repeat="clb in clbs" ng-click="courseSerch({{clb.id}})">{{clb.btnName}}</li>
+			</ul>
+		</div>
+		<div class="pricelist" ng-if="shoufei">
+			<ul>
+				<li ng-repeat="pb in pbs" ng-click="priceSerch({{pb.id}})"><span>{{pb.btnName}}</span></li>
+			</ul>
+		</div>
+		<div class="list" >
+				<div class="item item-thumbnail-left" ng-repeat="list in courselist">
+					<img ng-src="img/{{list.imgsrc}}">
+					<h2>{{list.titleEn}}</h2>
+					<p>{{list.price}}</p>
+				</div>
+		</div>
+   
+   <ion-infinite-scroll on-infinite="loadMore()" immediate-check="false">
+  <!-- <ion-infinite-scroll  ng-if="moredata" on-infinite="loadMore()" immediate-check="false">-->
+   	
+   </ion-infinite-scroll>
+   
+   
+	</ion-content>
+</ion-view>
